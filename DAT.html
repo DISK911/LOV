@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quer sair comigo?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fef3c7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff6f61;
+      text-shadow: 2px 2px 4px #ffab73;
+    }
+
+    .cartoon {
+      width: 150px;
+      margin: 20px auto;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px #00000050;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      background-color: #ffab73;
+    }
+
+    .button:active {
+      transform: scale(1);
+    }
+
+    .no-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: top 0.3s, left 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quer sair comigo? 🥰</h1>
+    <img class="cartoon" src="CAC.jpg" alt="Cute cartoon">
+    <div class="buttons">
+      <button class="button yes-button">Sim 💖</button>
+      <button class="button no-button">Não 🙃</button>
+    </div>
+  </div>
+
+  <script>
+    const noButton = document.querySelector('.no-button');
+
+    function moveButton() {
+      const randomX = Math.random() * window.innerWidth * 0.8;
+      const randomY = Math.random() * window.innerHeight * 0.8;
+
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    }
+
+    noButton.addEventListener('mouseover', moveButton);
+    noButton.addEventListener('touchstart', (e) => {
+      e.preventDefault(); // Evita comportamento padrão de toque
+      moveButton();
+    });
+
+    document.querySelector('.yes-button').addEventListener('click', () => {
+      alert('Eu sabia que você diria sim! ');
+    });
+
+    noButton.addEventListener('click', () => {
+      alert('Ops, o "Não" não funciona! 🤭');
+    });
+  </script>
+</body>
+</html>
